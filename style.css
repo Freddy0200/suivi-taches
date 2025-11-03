@@ -1,58 +1,129 @@
+/* --- Style global --- */
 body {
-  font-family: Arial, sans-serif;
-  background: #f3f3f3;
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(135deg, #ffecd2, #fcb69f);
+  min-height: 100vh;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* --- Conteneur principal --- */
+.app {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  width: 90%;
+  max-width: 420px;
+  padding: 30px 25px;
   text-align: center;
-  padding: 30px;
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 h1 {
   color: #333;
+  font-size: 1.8em;
+  margin-bottom: 25px;
 }
 
-.container {
-  background: white;
-  max-width: 400px;
-  margin: 0 auto;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+/* --- Zone d’ajout --- */
+.input-group {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
 }
 
-input {
-  width: 70%;
-  padding: 8px;
+#taskInput {
+  flex: 1;
+  padding: 12px;
+  border: 2px solid #fcb69f;
+  border-radius: 10px;
+  outline: none;
+  font-size: 1em;
+  transition: 0.3s;
 }
 
-button {
-  padding: 8px 12px;
-  background: #007bff;
+#taskInput:focus {
+  border-color: #ff7e5f;
+  box-shadow: 0 0 5px rgba(255, 126, 95, 0.4);
+}
+
+#addTaskBtn {
+  background: linear-gradient(90deg, #ff7e5f, #feb47b);
   color: white;
   border: none;
-  border-radius: 4px;
+  padding: 12px 18px;
+  border-radius: 10px;
   cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
 }
 
-button:hover {
-  background: #0056b3;
+#addTaskBtn:hover {
+  transform: scale(1.05);
+  background: linear-gradient(90deg, #ff9472, #f2709c);
 }
 
+/* --- Liste des tâches --- */
 ul {
-  list-style-type: none;
+  list-style: none;
   padding: 0;
-  margin-top: 20px;
+  margin-top: 25px;
 }
 
 li {
-  background: #eee;
-  margin: 5px 0;
-  padding: 8px;
-  border-radius: 4px;
+  background: #f9f9f9;
+  padding: 12px 15px;
+  border-radius: 12px;
+  margin-bottom: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+li:hover {
+  background: #ffe6dc;
+  transform: scale(1.02);
 }
 
 li.completed {
   text-decoration: line-through;
-  color: gray;
+  color: #aaa;
+  background: #eaeaea;
+}
+
+/* --- Bouton de suppression --- */
+.delete-btn {
+  background: none;
+  border: none;
+  color: #ff6b6b;
+  font-size: 1.2em;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.delete-btn:hover {
+  transform: rotate(10deg) scale(1.2);
+  color: #e63946;
+}
+
+/* --- Responsive --- */
+@media (max-width: 480px) {
+  .app {
+    padding: 20px;
+  }
+  #taskInput {
+    font-size: 0.9em;
+  }
+  #addTaskBtn {
+    font-size: 0.9em;
+  }
 }
